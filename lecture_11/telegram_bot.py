@@ -35,11 +35,5 @@ def main(message):
     bot.send_message(message.chat.id, text)
     bot.register_next_step_handler(message, fetch_search)
 
-def say_hello(message):
-    bot.send_message(message.chat.id, 'Hello')
-
-@bot.message_handler(commands=['gay'], func=lambda message: True)
-def main(message):
-    say_hello(message)
 
 bot.infinity_polling()
