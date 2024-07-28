@@ -9,5 +9,6 @@ class Book(Product):
         super().__init__(name, price, quantity)
         self.author = author
 
-    def read(self):
+    def __str__(self):
         return f'Name: {self.name}, author {self.author}. Quantity {self.quantity} and price {self.price}'
+
