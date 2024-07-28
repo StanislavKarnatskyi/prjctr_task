@@ -72,18 +72,13 @@ def test_savings_account(balance, account_number, overdraft, withdraw, expected_
     (0, '45', 3, 0),
 ])
 def test_bank_saving(balance, account_number, interest, expected_interest):
-    test_account = SavingsAccount(balance, account_number, interest)
+    test_account = Account(balance, account_number)
     bank = Bank()
     bank.open_account(test_account)
     assert len(bank.accounts) == 1
     for account in bank.accounts:
+        assert account.get_balance() == balance
         bank.remove_account_by_id(account.get_account_number())
     assert len(bank.accounts) == 0
 
 
-@pytest.mark.parametrize("balance, account_number, overdraft, expected_balance", [
-    (150, 'sam', 0, -150),
-    (1000, '123', 300, 850),
-])
-def test_bank_current(balance, account_number, overdraft, expected_balance):
-    pass

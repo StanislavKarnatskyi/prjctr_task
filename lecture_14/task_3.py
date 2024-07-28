@@ -29,7 +29,6 @@ class Account:
         return f'Account number: {self._account_number}, balance: {self._balance}'
 
 
-
 class SavingsAccount(Account):
     def __init__(self, balance, account_number, interest):
         super().__init__(balance, account_number)
